@@ -1,28 +1,48 @@
 {
-  "name": "squareci",
+  "name": "testcli",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "author": "Ersoy TORAMAN @jova",
   "bin": {
-    "squareci": "./index.js"
+    "testcli": "./bin/run",
+    "squareci": "./bin/run"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jova/squareci.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jova/squareci/issues"
-  },
-  "homepage": "https://github.com/jova/squareci#readme",
+  "bugs": "https://github.com/jova/testcli/issues",
   "dependencies": {
-    "chalk": "^3.0.0",
-    "esm": "^3.2.25",
-    "minimist": "^1.2.0"
-  }
+    "@oclif/command": "^1.5.19",
+    "@oclif/config": "^1.13.3",
+    "@oclif/plugin-help": "^2.2.1",
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.17.6",
+    "eslint": "^5.16.0",
+    "eslint-config-oclif": "^3.1.0",
+    "eslint-config-oclif-typescript": "^0.1.0",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.2"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/jova/testcli",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "bin": "testcli"
+  },
+  "repository": "jova/testcli",
+  "scripts": {
+    "posttest": "eslint . --ext .ts --config .eslintrc",
+    "prepack": "rimraf lib && tsc -b",
+    "test": "echo NO TESTS"
+  },
+  "types": "lib/index.d.ts"
 }
